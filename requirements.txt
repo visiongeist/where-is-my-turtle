@@ -1,0 +1,6 @@
+fastai>=2.0.0
+torch
+gradio
+numpy
+pandas
+scikit_learn
