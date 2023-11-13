@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SupabaseService } from './supabase.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'where-is-my-turtle';
+  session: any;
+
+  constructor(private readonly supabase: SupabaseService) {
+    
+  }
+
+  async ngOnInit() {
+    this.session = await this.supabase.getSession();
+    this.supabase.authChanges((_, session) => (this.session = session))
+  }
 }
