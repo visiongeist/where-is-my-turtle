@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+    <h1>Where is my turtle ?</h1>
+    <form (ngSubmit)="onSubmit()" class="form-widget">
+      <input type="file" (change)="onSelectFile($event)" />
+      <mat-card *ngIf="source" class="preview">
+        <mat-card-header>
+          <mat-card-title>Your image</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="source" src="" alt="Photo of a Shiba Inu">
+      </mat-card>
+      <div class="buttonBar">
+        <button type="submit" class="button block" [disabled]="loading" mat-raised-button color="primary">
+            {{ loading ? 'Loading' : 'Tell me!' }}
+        </button>
+    </div>
+    </form>
+  </div>
+</div>

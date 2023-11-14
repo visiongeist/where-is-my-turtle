@@ -13,11 +13,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { WhereIsMyTurtleComponent } from './pages/where-is-my-turtle/where-is-my-turtle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    WhereIsMyTurtleComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonToggleModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

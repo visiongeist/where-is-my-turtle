@@ -36,6 +36,11 @@ export class SupabaseService {
 
     return this._session
   }
+  
+  getStorage() {
+    return this.supabase.storage;
+  }
+  
 
   authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
     return this.supabase.auth.onAuthStateChange(callback)
