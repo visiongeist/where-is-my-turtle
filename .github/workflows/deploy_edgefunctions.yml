@@ -23,4 +23,6 @@ jobs:
       
       - name: Setup and run tests
         working-directory: ./edgefunctions/test-function
-        run: supabase functions deploy test-function --project-ref $PROJECT_ID
+        run: |
+            npm install
+            supabase functions deploy test-function --project-ref $PROJECT_ID
