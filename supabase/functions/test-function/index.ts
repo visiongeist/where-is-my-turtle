@@ -39,10 +39,10 @@ Deno.serve(async (req) => {
   })
 
   // Store image caption in Database table
-  await supabaseAdminClient
-    .from('image_caption')
-    .insert({ id: soRecord.id!, caption: imgDesc.generated_text })
-    .throwOnError()
+  // await supabaseAdminClient
+  //   .from('image_caption')
+  //   .insert({ id: soRecord.id!, caption: imgDesc.generated_text })
+  //   .throwOnError()
 
-  return new Response('ok')
+  return new Response(imgDesc.generated_text);
 })
