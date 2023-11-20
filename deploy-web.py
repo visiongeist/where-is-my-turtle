@@ -8,7 +8,7 @@ CORS(app, support_credentials=True)
 def is_cat(x): return x[0].isupper() 
 
 # load the learner
-learn = load_learner('../model/model.pkl')
+learn = load_learner('./model/model.pkl')
 categories = ('Dog', 'Cat')
 
 def classify_images(img):

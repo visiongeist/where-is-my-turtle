@@ -1,9 +1,0 @@
-fastai
-torch
-gradio
-numpy
-pandas
-scikit_learn
-Flask
-gunicorn
-flask_cors
