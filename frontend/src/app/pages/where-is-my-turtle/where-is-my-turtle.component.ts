@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from '../../../environments/environment'
 // import { SupabaseService } from '../../supabase.service'
 
 @Component({
@@ -8,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class WhereIsMyTurtleComponent {
   constructor(
+    private http: HttpClient
     // private readonly supabase: SupabaseService,
   ) { }
 
@@ -29,21 +32,29 @@ export class WhereIsMyTurtleComponent {
         this.source = reader.result as string;
       }
       reader.readAsDataURL(this.file);
-      
-      // supabase upload
-    //   const { data, error } = await this.supabase.getStorage()
-    //     .from('images')
-    //     .upload(this.file?.name, this.file as File);
 
-    //     // You can uncomment this console to check whether its successfully uploaded
-    //     console.log(data ? 'Success' : error)
+      // supabase upload
+      //   const { data, error } = await this.supabase.getStorage()
+      //     .from('images')
+      //     .upload(this.file?.name, this.file as File);
+
+      //     // You can uncomment this console to check whether its successfully uploaded
+      //     console.log(data ? 'Success' : error)
     }
   }
 
   async onSubmit(): Promise<void> {
     try {
-      this.loading = true
-      
+      this.loading = true;
+
+      if (this.file) {
+        const formData = new FormData();
+        formData.append('image', this.file);
+
+        const res = await this.http.post(environment.predictionUrl, formData).toPromise();
+        alert(JSON.stringify(res));
+      }
+
       // TODO call huggingface api
     } catch (error) {
       if (error instanceof Error) {

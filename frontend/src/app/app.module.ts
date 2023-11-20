@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +26,9 @@ import { WhereIsMyTurtleComponent } from './pages/where-is-my-turtle/where-is-my
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     MatFormFieldModule,
